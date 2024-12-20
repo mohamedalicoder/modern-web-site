@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Web Application</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+    <header>
+        <nav class="main-nav">
+            <div class="logo">
+                <a href="../index.html">WebApp</a>
+            </div>
+            <button class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="profile.html" class="active">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="profile-section auth-required">
+            <div class="container">
+                <div class="profile-grid">
+                    <div class="profile-sidebar">
+                        <div class="profile-avatar">
+                            <img id="avatarImage" src="../assets/default-avatar.jpg" alt="Profile Avatar">
+                            <button class="btn secondary" id="changeAvatarBtn">Change Avatar</button>
+                        </div>
+                        <div class="profile-menu">
+                            <button class="menu-item active" data-tab="profile">Profile</button>
+                            <button class="menu-item" data-tab="security">Security</button>
+                            <button class="menu-item" data-tab="preferences">Preferences</button>
+                            <button class="menu-item" data-tab="orders">Orders</button>
+                        </div>
+                    </div>
+
+                    <div class="profile-content">
+                        <!-- Profile Tab -->
+                        <div class="profile-tab active" id="profileTab">
+                            <h2>Profile Information</h2>
+                            <form id="profileForm">
+                                <div class="form-group">
+                                    <label for="name">Full Name</label>
+                                    <input type="text" id="name" name="name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" id="email" name="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Phone</label>
+                                    <input type="tel" id="phone" name="phone">
+                                </div>
+                                <div class="form-group">
+                                    <label for="bio">Bio</label>
+                                    <textarea id="bio" name="bio" rows="4"></textarea>
+                                </div>
+                                <button type="submit" class="btn primary">Save Changes</button>
+                            </form>
+                        </div>
+
+                        <!-- Security Tab -->
+                        <div class="profile-tab" id="securityTab">
+                            <h2>Security Settings</h2>
+                            <form id="securityForm">
+                                <div class="form-group">
+                                    <label for="currentPassword">Current Password</label>
+                                    <input type="password" id="currentPassword" name="currentPassword" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="newPassword">New Password</label>
+                                    <input type="password" id="newPassword" name="newPassword" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="confirmPassword">Confirm New Password</label>
+                                    <input type="password" id="confirmPassword" name="confirmPassword" required>
+                                </div>
+                                <button type="submit" class="btn primary">Change Password</button>
+                            </form>
+                        </div>
+
+                        <!-- Preferences Tab -->
+                        <div class="profile-tab" id="preferencesTab">
+                            <h2>User Preferences</h2>
+                            <form id="preferencesForm">
+                                <div class="form-group">
+                                    <label>
+                                        <input type="checkbox" id="emailNotifications" name="emailNotifications">
+                                        Receive Email Notifications
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label>
+                                        <input type="checkbox" id="newsletter" name="newsletter">
+                                        Subscribe to Newsletter
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label for="theme">Theme</label>
+                                    <select id="theme" name="theme">
+                                        <option value="light">Light</option>
+                                        <option value="dark">Dark</option>
+                                        <option value="system">System Default</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn primary">Save Preferences</button>
+                            </form>
+                        </div>
+
+                        <!-- Orders Tab -->
+                        <div class="profile-tab" id="ordersTab">
+                            <h2>Order History</h2>
+                            <div class="orders-list" id="ordersList">
+                                <!-- Orders will be loaded dynamically -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Login Required Message -->
+        <section class="login-required no-auth">
+            <div class="container">
+                <h2>Please Login</h2>
+                <p>You need to be logged in to view your profile.</p>
+                <button class="btn primary" id="loginBtn">Login</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Web Application. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/profile.js"></script>
+</body>
+</html>

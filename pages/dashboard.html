@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Web Application</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .dashboard {
+            padding: 2rem;
+            background: #f8f9fa;
+            min-height: calc(100vh - 60px);
+        }
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .dashboard-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .stat-card {
+            text-align: center;
+        }
+        .stat-card i {
+            font-size: 2rem;
+            color: #007bff;
+            margin-bottom: 1rem;
+        }
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        .profile-card {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        .profile-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #007bff;
+        }
+        .profile-info h2 {
+            margin: 0 0 0.5rem;
+            color: #333;
+        }
+        .profile-info p {
+            margin: 0;
+            color: #666;
+        }
+        .recent-activity {
+            margin-top: 2rem;
+        }
+        .activity-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .activity-item {
+            padding: 1rem;
+            border-bottom: 1px solid #e9ecef;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .activity-item:last-child {
+            border-bottom: none;
+        }
+        .activity-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #e7f1ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #007bff;
+        }
+        .activity-content {
+            flex: 1;
+        }
+        .activity-content h4 {
+            margin: 0 0 0.25rem;
+            color: #333;
+        }
+        .activity-content p {
+            margin: 0;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        .activity-time {
+            color: #999;
+            font-size: 0.8rem;
+        }
+        .quick-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .action-btn {
+            padding: 0.5rem 1rem;
+            border: 1px solid #007bff;
+            border-radius: 5px;
+            color: #007bff;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .action-btn:hover {
+            background: #007bff;
+            color: white;
+        }
+        @media (max-width: 768px) {
+            .dashboard {
+                padding: 1rem;
+            }
+            .profile-card {
+                flex-direction: column;
+                text-align: center;
+            }
+            .quick-actions {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="main-nav">
+            <div class="logo">
+                <a href="../index.html">WebApp</a>
+            </div>
+            <button class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="profile.html">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="dashboard">
+        <div class="dashboard-grid">
+            <div class="dashboard-card profile-card">
+                <div class="profile-image">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="profile-info">
+                    <h2 id="userName">Loading...</h2>
+                    <p id="userEmail">Loading...</p>
+                    <div class="quick-actions">
+                        <button class="action-btn" onclick="editProfile()">
+                            <i class="fas fa-edit"></i> Edit Profile
+                        </button>
+                        <button class="action-btn" onclick="logout()">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="dashboard-card stat-card">
+                <i class="fas fa-shopping-cart"></i>
+                <div class="stat-number" id="totalOrders">0</div>
+                <div class="stat-label">Total Orders</div>
+            </div>
+            <div class="dashboard-card stat-card">
+                <i class="fas fa-heart"></i>
+                <div class="stat-number" id="wishlistItems">0</div>
+                <div class="stat-label">Wishlist Items</div>
+            </div>
+            <div class="dashboard-card stat-card">
+                <i class="fas fa-star"></i>
+                <div class="stat-number" id="totalReviews">0</div>
+                <div class="stat-label">Reviews</div>
+            </div>
+        </div>
+
+        <div class="dashboard-card recent-activity">
+            <h3>Recent Activity</h3>
+            <ul class="activity-list" id="activityList">
+                <!-- Activity items will be dynamically loaded -->
+            </ul>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Web Application. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/dashboard.js"></script>
+</body>
+</html>

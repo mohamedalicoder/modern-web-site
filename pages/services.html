@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Web Application</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .services-section {
+            padding: 4rem 0;
+            background: #f8f9fa;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        .service-card i {
+            font-size: 2.5rem;
+            color: #007bff;
+            margin-bottom: 1rem;
+        }
+        .service-card h3 {
+            margin: 1rem 0;
+            color: #333;
+        }
+        .service-card p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        .cta-section {
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        .cta-section h2 {
+            margin-bottom: 1rem;
+        }
+        .cta-section p {
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="main-nav">
+            <div class="logo">
+                <a href="../index.html">WebApp</a>
+            </div>
+            <button class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="services.html" class="active">Services</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="profile.html">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="services-section">
+            <div class="container">
+                <h1>Our Services</h1>
+                <div class="services-grid">
+                    <div class="service-card fade-in">
+                        <i class="fas fa-code"></i>
+                        <h3>Web Development</h3>
+                        <p>Custom web development solutions tailored to your needs.</p>
+                        <a href="#" class="btn primary">Learn More</a>
+                    </div>
+                    <div class="service-card fade-in">
+                        <i class="fas fa-mobile-alt"></i>
+                        <h3>Mobile Apps</h3>
+                        <p>Native and cross-platform mobile application development.</p>
+                        <a href="#" class="btn primary">Learn More</a>
+                    </div>
+                    <div class="service-card fade-in">
+                        <i class="fas fa-cloud"></i>
+                        <h3>Cloud Solutions</h3>
+                        <p>Scalable cloud infrastructure and hosting services.</p>
+                        <a href="#" class="btn primary">Learn More</a>
+                    </div>
+                    <div class="service-card fade-in">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Cybersecurity</h3>
+                        <p>Comprehensive security solutions for your digital assets.</p>
+                        <a href="#" class="btn primary">Learn More</a>
+                    </div>
+                    <div class="service-card fade-in">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Digital Marketing</h3>
+                        <p>Strategic marketing solutions to grow your business.</p>
+                        <a href="#" class="btn primary">Learn More</a>
+                    </div>
+                    <div class="service-card fade-in">
+                        <i class="fas fa-headset"></i>
+                        <h3>24/7 Support</h3>
+                        <p>Round-the-clock technical support and maintenance.</p>
+                        <a href="#" class="btn primary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <h2>Ready to Get Started?</h2>
+                <p>Contact us today to discuss your project requirements.</p>
+                <a href="contact.html" class="btn primary">Contact Us</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Web Application. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>
